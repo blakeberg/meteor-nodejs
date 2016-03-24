@@ -1,6 +1,8 @@
 #  meteor-nodejs
 Based on <https://github.com/fedora-cloud/Fedora-Dockerfiles> ported by Adam Miller from **centos:centos7**
 
+This Dockerfile stands for a **JavaScript Runtime and App Platform** where you can develop decentralized applications bundled as single html file connected to an running ethereum node with **JavaScript web3 API** communicating internally via **JSON RPC API**.
+
 Image size: 860,3 MByte
 
 ## Installed packages
@@ -63,3 +65,5 @@ See example <https://github.com/blakeberg/meteor-nodejs/tree/master/bundled-dumm
 * Install Meteor <https://www.meteor.com/install>
 * Meteor API <http://docs.meteor.com/#/basic/>
 * Meteor Build Client <https://github.com/frozeman/meteor-build-client>
+* Ethereum JavaScript web3 API <https://github.com/ethereum/web3.js/tree/master> and <https://github.com/ethereum/wiki/wiki/JavaScript-API>
+* Ethereum JSON RPC API <https://github.com/ethereum/wiki/wiki/JSON-RPC>
