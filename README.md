@@ -10,9 +10,6 @@ Image size: 860,3 MByte
 * meteor
 * meteor-build-client
 
-## next steps
-* run meteor build client
-
 ## Building & Running
 Pull from dockerhub:
 
@@ -36,6 +33,9 @@ Connect with ssh use the port that was just located:
 * you can also connect via scp of course
 
 ## Meteor
+JavaScript App Platform used for creating decentralized Apps (dapps) with Ethereum.
+
+### First App
 Create a new dummy app within a running container. 
 
 1. connect with ssh
@@ -43,6 +43,18 @@ Create a new dummy app within a running container.
 3. change dir: `cd dummy`
 4. start app dummy: `nohup meteor &`
 5. show app in browser: `http://localhost:13000` (or IP of the VM if you use boot2docker)
+
+### Bundle App
+
+With Meteor Build Client you can bundle the client part of a Meteor app with a simple index.html, so it can be hosted on any server or even loaded via the file:// protocol.
+
+**There is no need for centralized server!**
+
+1. connect with ssh
+2. change dir: `cd dummy`
+3. bundle app: `meteor-build-client ../dummy-bundled`
+4. change dir: `cd ../dummy-bundled`
+5. `chmod g+x` for created js file
 
 ## Useful Links
 * Meteor Example App Handson <https://www.meteor.com/tutorials/blaze/creating-an-app>
