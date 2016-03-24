@@ -56,6 +56,8 @@ With Meteor Build Client you can bundle the client part of a Meteor app with a s
 4. change dir: `cd ../dummy-bundled`
 5. `chmod g+x` for created js file
 
+See example <https://github.com/blakeberg/meteor-nodejs/tree/master/bundled-dummy-app>
+
 ## Useful Links
 * Meteor Example App Handson <https://www.meteor.com/tutorials/blaze/creating-an-app>
 * Install Meteor <https://www.meteor.com/install>
