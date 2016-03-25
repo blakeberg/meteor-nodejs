@@ -11,8 +11,8 @@ RUN curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
 
 RUN yum -y update; yum clean all
 RUN yum -y install openssh-server passwd sudo nodejs; yum clean all
-RUN mkdir /var/run/sshd
 
+RUN mkdir /var/run/sshd
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N '' 
 
 RUN useradd -m meteor

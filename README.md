@@ -8,6 +8,7 @@ Image size: 860,3 MByte
 ## Installed packages
 * openssh-server
 * sudo
+* passwd
 * nodejs
 * meteor
 * meteor-build-client
