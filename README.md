@@ -16,17 +16,27 @@ Image size: 860,3 MByte
 ## Building & Running
 Pull from dockerhub:
 
-    docker pull blakeberg/ssh:meteor-nodejs
+    docker pull blakeberg/meteor-nodejs
 
 or copy the sources to your docker host.
 
 ### Build
-	docker build --force-rm -t blakeberg/ssh:meteor-nodejs .
+	docker build --force-rm -t blakeberg/meteor-nodejs .
 
 ### Run
-	docker run -d --name meteor -p 10022:22 -p 13000:3000 blakeberg/ssh:meteor-nodejs
+You can choose to run this container with or without a link to an Ethereum client.
+#### Run Container without Ethereum
+
+	docker run -d -h meteor --name meteor -p 10022:22 -p 3000:3000 blakeberg/meteor-nodejs
+
+#### Run Container with Ethereum 
+Container blakeberg/ssh:geth-node exists and is running.
+
+	docker run -d --name meteor -p 10022:22 -p 3000:3000 --link=geth:geth blakeberg/meteor-nodejs
 
 ### Connect 
+If you are connected to this container you can connect to linked container `geth` too.
+#### Connect to this container
 Connect with ssh use the port that was just located:
 
 	ssh -p 10022 meteor@localhost
@@ -34,6 +44,15 @@ Connect with ssh use the port that was just located:
 * initial passwd @see Dockerfile
 * you can use sudo @ALL
 * you can also connect via scp of course
+
+#### Connect to linked container
+From this container you can connect to linked container `geth` via JSON RPC API:
+
+    curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' http://geth:8545
+
+If Ethereum node on geth is running you will get a JSON Response 
+
+    {"id":67,"jsonrpc":"2.0","result":"Geth/v1.3.5/linux/go1.5.1"}
 
 ## Meteor
 JavaScript App Platform used for creating decentralized Apps (dapps) with Ethereum.
@@ -45,7 +64,7 @@ Create a new dummy app within a running container.
 2. create app dummy: `meteor create dummy` (first meteor is installing)
 3. change dir: `cd dummy`
 4. start app dummy: `nohup meteor &`
-5. show app in browser: `http://localhost:13000` (or IP of the VM if you use boot2docker)
+5. show app in browser: `http://localhost:3000` (or IP of the VM if you use boot2docker)
 
 ### Bundle App
 
