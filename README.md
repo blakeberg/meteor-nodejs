@@ -24,19 +24,19 @@ or copy the sources to your docker host.
 	docker build --force-rm -t blakeberg/meteor-nodejs .
 
 ### Run
-You can choose to run this container with or without a link to an Ethereum client.
-#### Run Container without Ethereum
+You can choose to run this container with or without a link to an Ethereum client geth.
+#### without geth
 
 	docker run -d -h meteor --name meteor -p 10022:22 -p 3000:3000 blakeberg/meteor-nodejs
 
-#### Run Container with Ethereum 
+#### with geth 
 Container blakeberg/ssh:geth-node exists and is running.
 
 	docker run -d --name meteor -p 10022:22 -p 3000:3000 --link=geth:geth blakeberg/meteor-nodejs
 
 ### Connect 
 If you are connected to this container you can connect to linked container `geth` too.
-#### Connect to this container
+#### to this container
 Connect with ssh use the port that was just located:
 
 	ssh -p 10022 meteor@localhost
@@ -45,7 +45,7 @@ Connect with ssh use the port that was just located:
 * you can use sudo @ALL
 * you can also connect via scp of course
 
-#### Connect to linked container
+#### to linked container
 From this container you can connect to linked container `geth` via JSON RPC API:
 
     curl -X POST --data '{"jsonrpc":"2.0","method":"web3_clientVersion","params":[],"id":67}' http://geth:8545
