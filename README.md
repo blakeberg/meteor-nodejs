@@ -1,5 +1,5 @@
 #  meteor-nodejs
-Based on <https://github.com/fedora-cloud/Fedora-Dockerfiles> ported by Adam Miller from **centos:centos7**
+Based on Offical CentOS image from **centos:centos7**
 
 This Dockerfile stands for a **JavaScript Runtime and App Platform** where you can develop decentralized applications bundled as single html file connected to an running ethereum node with **JavaScript web3 API** communicating internally via **JSON RPC API**.
 
