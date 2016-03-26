@@ -64,7 +64,9 @@ Create a new dummy app within a running container.
 2. create app dummy: `meteor create dummy` (first meteor is installing)
 3. change dir: `cd dummy`
 4. start app dummy: `nohup meteor &`
-5. show app in browser: `http://localhost:3000` (or IP of the VM if you use boot2docker)
+5. show app in browser: `http://localhost:3000` 
+
+> if you use boot2docker, docker is configured to use the default machine with IP 192.168.99.100
 
 ### Bundle App
 
