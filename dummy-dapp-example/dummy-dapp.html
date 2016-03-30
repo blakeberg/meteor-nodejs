@@ -1,0 +1,59 @@
+<head>
+  <title>dummy-dapp</title>
+</head>
+
+<body>
+  {{> elements}}
+  {{> dapp_modalPlaceholder}}
+</body>
+
+<template name="elements">
+<header class="dapp-header">
+    <h2>Welcome to Meteor Dummy Dapp!</h2>
+</header>
+
+<div class="dapp-flex-content">
+    
+    <!-- aside -->
+    <aside class="dapp-aside">
+      {{greeter}}
+      {{> dapp_selectAccount accounts=accounts showAccountTypes=true}}
+      <br><br>
+      <div><button class="modal">Modal from template</button></div>
+      <div><button class="question-modal">Question modal</button></div>
+      <div><button class="question-modal-template">Question modal with template</button></div>
+    </aside>
+
+    <!-- content-->
+    <main class="dapp-content">
+    <div style="height:100px">{{> dapp_identicon identity='0x0608616212f0356c3d4c7c7b1c317151646164e1'}}</div>
+    {{> dapp_addressInput placeholder="0x000000.." value="0x0608616212f0356c3d4c7c7b1c317151646164e1"}}
+    {{> dapp_dataTextarea rows="5" cols="10" value="0x0608616212f0356c3d4c7c7b1c317151646164e1"}}
+    <br><br>{{> dapp_selectGasPrice gas=21000 gasPrice=50000000000}}
+    </main>
+
+    <!-- actionbar -->
+    <aside class="dapp-actionbar">
+
+    </aside>
+
+</div>
+
+<!-- footer -->
+<footer class="dapp-footer">
+      The last block number is {{currentBlock}}.<br>
+      {{dapp_formatBalance "1000000000000000000" "0,0.00[000] UNIT"}} = 
+      {{dapp_formatBalance "1000000000000000000" "0,0.00[0000] UNIT" "btc"}} = 
+      {{dapp_formatBalance "1000000000000000000" "0,0.00 UNIT" "eur"}}
+</footer>
+</template>
+
+<template name="modal_demo">
+  <h1>Some Modal</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</template>
