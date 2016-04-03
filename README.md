@@ -3,13 +3,15 @@ Based on Offical CentOS image from **centos:centos7**
 
 This Dockerfile stands for a **JavaScript Runtime and App Platform** where you can develop decentralized applications (Dapps) bundled as single html file connected to an running ethereum node with **JavaScript web3 API** communicating internally via **JSON RPC API**.
 
-Image size: 1.042 GByte
+Image size: 1.108 GByte
 
 ## Installed packages
 * openssh-server
 * sudo
 * passwd
-* nodejs *(with solc and meteor-build-client)*
+* git
+* curl
+* nodejs *(with solc, web3 and meteor-build-client)*
 * meteor
 
 ## Building & Running
@@ -127,6 +129,8 @@ See bundled (d)apps examples:
 - <https://github.com/blakeberg/meteor-nodejs/tree/master/bundled-dummy-dapp>
 
 >You can download these files and run via the file:// protocol. The dapp need a running geth-node *(link below)*
+
+## NodeJS
 
 ## Useful Links
 * Meteor Example App Handson <https://www.meteor.com/tutorials/blaze/creating-an-app>

@@ -10,7 +10,7 @@ ENV SSH_USERPASS=newpass
 RUN curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -
 
 RUN yum -y update; yum clean all
-RUN yum -y install openssh-server passwd sudo nodejs; yum clean all
+RUN yum -y install openssh-server passwd sudo nodejs git; yum clean all
 
 RUN useradd -m meteor
 RUN echo -e "$SSH_USERPASS\n$SSH_USERPASS" | (passwd --stdin meteor)
@@ -24,6 +24,7 @@ RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''
 RUN curl https://install.meteor.com/ | sh
 RUN npm install -g meteor-build-client
 RUN npm install solc
+RUN npm install web3
 
 EXPOSE 22 3000
 ENTRYPOINT ["/usr/sbin/sshd", "-D"]
