@@ -1,2 +1,5 @@
 bundled-dummy-app/*
 bundled-dummy-dapp/*
+.git*
+LICENCE
+README.md
