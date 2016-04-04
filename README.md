@@ -3,7 +3,9 @@ Based on Offical CentOS image from **centos:centos7**
 
 This Dockerfile stands for a **JavaScript Runtime and App Platform** where you can develop decentralized applications (Dapps) bundled as single html file connected to an running ethereum node with **JavaScript web3 API** communicating internally via **JSON RPC API**.
 
-Image size: 1.108 GByte
+- DockerHub Size: 333 MByte
+- DockerHub: <https://hub.docker.com/r/blakeberg/meteor-nodejs>
+- Docker Images Size: 1.108 GByte
 
 ## Installed packages
 * openssh-server
