@@ -81,6 +81,7 @@ A Dapp contains one or more contracts and a graphical user interface (UI) to han
 
 #### create own
 Create a new dummy-dapp within a running container.
+Approve that container blakeberg/ssh:geth-node exists, is linked and its Ethereum client is running.
 
 1. connect with ssh
 2. create app dummy: `meteor create --release 1.2.1 dummy-dapp` *(first meteor is not installing if you done the dummy-app before)*
@@ -99,7 +100,7 @@ Create a new dummy-dapp within a running container.
 9. Try some stuff from ethereum packages *(link below)*
 
 #### run example
-This example is included in this container and show at least on use case for each Meteor package for Ethereum. 
+This example is included in this container and show at least on use case for each Meteor package for Ethereum. Approve that container blakeberg/ssh:geth-node exists, is linked and its Ethereum client is running.
 
 1. run step 1-8 of create own sample dapp
 2. copy files `cp ~/dummy-dapp.* .`
@@ -108,7 +109,6 @@ This example is included in this container and show at least on use case for eac
 > You see see the result "Hello World!" from sample contact "Greeter" `greeter.greet()` as example in container geth-node *(link below)*
 
 ### Bundle (D)Apps
-
 With Meteor Build Client you can bundle the client part of a Meteor app with a simple index.html and javascript (and maybe css and images), so it can be hosted on any server or even loaded via the file:// protocol.
 
 > Note that the Build Client could not executed successful for Meteor 1.3 projects so that is the reason why there built with option `--release 1.2.1`
@@ -131,7 +131,13 @@ See bundled (d)apps examples:
 >You can download these files and run via the file:// protocol. The dapp need a running geth-node *(link below)*
 
 ## NodeJS
-You can also execute JavaScript with web3.js from NodeJS as a javascript console with a linked container "geth-node" with running Ethereum client. Type `node` for javascript browser console.
+NodeJS is a JavaScript Runtime Environment with Package Manager NPM which installed the Packages solc, web3 and also meteor-build-client described before. Approve that container blakeberg/ssh:geth-node exists, is linked and its Ethereum client is running.
+
+### with solc
+
+
+### with web3
+You can also execute JavaScript with web3.js from NodeJS as a javascript console type `node`..
 
 Load Web3 Module and connect to Ethereum client:
 
@@ -145,7 +151,7 @@ Get account information:
 	console.log(coinbase); 
 	console.log(web3.eth.getBalance(coinbase));
 
-Call contract greeter (as in example above):
+Call contract greeter (as in dapp example above):
 
 	var abi = [{"constant":false,"inputs":[],"name":"kill","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"type":"function"},{"inputs":[{"name":"_greeting","type":"string"}],"type":"constructor"}]; 
 	var greeter = web3.eth.contract(abi).at("0x0608616212f0356c3d4c7c7b1c317151646164e1");
