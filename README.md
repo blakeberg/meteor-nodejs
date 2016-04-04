@@ -131,6 +131,25 @@ See bundled (d)apps examples:
 >You can download these files and run via the file:// protocol. The dapp need a running geth-node *(link below)*
 
 ## NodeJS
+You can also execute JavaScript with web3.js from NodeJS as a javascript console with a linked container "geth-node" with running Ethereum client. Type `node` for javascript browser console.
+
+Load Web3 Module and connect to Ethereum client:
+
+    var Web3 = require('web3');
+	var web3 = new Web3();
+	web3.setProvider(new web3.providers.HttpProvider('http://geth:8545'));
+
+Get account information:
+
+	var coinbase = web3.eth.coinbase;
+	console.log(coinbase); 
+	console.log(web3.eth.getBalance(coinbase));
+
+Call contract greeter (as in example above):
+
+	var abi = [{"constant":false,"inputs":[],"name":"kill","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"greet","outputs":[{"name":"","type":"string"}],"type":"function"},{"inputs":[{"name":"_greeting","type":"string"}],"type":"constructor"}]; 
+	var greeter = web3.eth.contract(abi).at("0x0608616212f0356c3d4c7c7b1c317151646164e1");
+	greeter.greet();
 
 ## Useful Links
 * Meteor Example App Handson <https://www.meteor.com/tutorials/blaze/creating-an-app>
