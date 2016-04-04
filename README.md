@@ -141,13 +141,13 @@ You can also compile contracts with solc from NodeJS as a javascript console typ
 Load solc module:
 
     var solc = require('solc');
-	console.log(solc.version());
+	solc.version();
 
 Compile contract greeter:
 
 	var greeter = solc.compile("contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }");
-	console.log(greeter.contracts.greeter.gasEstimates); 
-	console.log(greeter.contracts.mortal.gasEstimates); 
+	greeter.contracts.greeter.gasEstimates; 
+	greeter.contracts.mortal.gasEstimates; 
   
 
 ### with web3
@@ -162,8 +162,8 @@ Load web3 module and connect to Ethereum client:
 Get account information:
 
 	var coinbase = web3.eth.coinbase;
-	console.log(coinbase); 
-	console.log(web3.eth.getBalance(coinbase));
+	coinbase; 
+	web3.eth.getBalance(coinbase);
 
 Call contract greeter (as in dapp example above):
 
