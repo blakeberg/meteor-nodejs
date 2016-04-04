@@ -134,12 +134,24 @@ See bundled (d)apps examples:
 NodeJS is a JavaScript Runtime Environment with Package Manager NPM which installed the Packages solc, web3 and also meteor-build-client described before. Approve that container blakeberg/ssh:geth-node exists, is linked and its Ethereum client is running.
 
 ### with solc
+You can also compile contracts with solc from NodeJS as a javascript console type `node`.
 
+Load solc module:
+
+    var solc = require('solc');
+	console.log(solc.version());
+
+Compile contract greeter:
+
+	var greeter = solc.compile("contract mortal { address owner; function mortal() { owner = msg.sender; } function kill() { if (msg.sender == owner) suicide(owner); } } contract greeter is mortal { string greeting; function greeter(string _greeting) public { greeting = _greeting; } function greet() constant returns (string) { return greeting; } }");
+	console.log(greeter.contracts.greeter.gasEstimates); 
+	console.log(greeter.contracts.mortal.gasEstimates); 
+  
 
 ### with web3
-You can also execute JavaScript with web3.js from NodeJS as a javascript console type `node`..
+You can also execute JavaScript with web3.js from NodeJS as a javascript console type `node`.
 
-Load Web3 Module and connect to Ethereum client:
+Load web3 module and connect to Ethereum client:
 
     var Web3 = require('web3');
 	var web3 = new Web3();
@@ -167,3 +179,5 @@ Call contract greeter (as in dapp example above):
 * Ethereum JavaScript web3 API <https://github.com/ethereum/web3.js/tree/master> and <https://github.com/ethereum/wiki/wiki/JavaScript-API>
 * Ethereum JSON RPC API <https://github.com/ethereum/wiki/wiki/JSON-RPC>
 * Ethereum Container <https://github.com/blakeberg/geth-node>
+* NPM-Package solc <https://www.npmjs.com/package/solc>
+* NPM-Package web3 <https://www.npmjs.com/package/web3>
